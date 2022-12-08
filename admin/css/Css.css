@@ -1,0 +1,50 @@
+﻿.dl-horizontal {
+    margin-left: 200px;
+}
+.form-horizontal {
+    margin-left: 100px;
+}
+
+/*.table {
+    border: 1px solid black;
+		border-collapse: collapse;
+    border-bottom: 10px;
+}*/
+/*
+	tr, th, td {
+		border: 1px solid black;
+	}*/
+#search {
+    margin-bottom: 5px;
+    padding: 2px 3px;
+    width: 209px;
+    margin-left: 890px;
+}
+#Create {
+    color: #fff;
+    background-color: #337ab7;
+    border-color: #2e6da4;
+}
+#Back {
+    color: #fff;
+    background-color: #f0ad4e;
+    border-color: #eea236;
+}
+#Dichuyen {
+    margin-left: 550px;
+}
+.tra{
+    background-color: #cad8fa;
+    padding: 5px;
+}
+.trb {
+    background-color: #f0e7da;
+    padding: 5px;
+}
+#myTable {
+    border: 1px solid #ccc;
+   
+}
+/*.table {
+    border-bottom: 10px solid red;
+}*/

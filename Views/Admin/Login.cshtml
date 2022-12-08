@@ -1,0 +1,47 @@
+﻿@model Recruitment_Process_System_HR.Models.Employee
+
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_LayoutLogin.cshtml";
+}
+
+<section class="w3l-login">
+    <div class="overlay">
+        <div class="wrapper">
+            <div class="form-section">
+                <h3>Login</h3>
+                @using (Html.BeginForm("Login", "Admin", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(true)
+                    <div class="signin-form">
+                        <div class="form-input">
+
+                            @*<input type="text" name="Username" placeholder="Username" required="" autofocus>*@
+                            @Html.TextBoxFor(a => a.EmployeeCode)
+                            @Html.ValidationMessageFor(a => a.EmployeeCode, "", new { @class = "text-danger " })
+                        </div>
+                        <div class="form-input">
+                            @Html.PasswordFor(a => a.Password)
+                            @Html.ValidationMessageFor(a => a.Password, "", new { @class = "text-danger" })
+                        </div>
+                        @if (ViewBag.error != null)
+                        {
+                            <label class="text-danger">
+                                @ViewBag.error
+                            </label>
+                        }
+                        <button type="submit" class="btn btn-primary theme-button mt-4">Log in</button>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    <div id='stars'></div>
+    <div id='stars2'></div>
+    <div id='stars3'></div>
+</section>
+<script src="~/Scripts/jquery-2.0.0.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+

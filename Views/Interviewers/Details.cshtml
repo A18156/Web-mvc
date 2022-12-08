@@ -1,0 +1,43 @@
+﻿@model Recruitment_Process_System_HR.Models.Interviewer
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Interviewer</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Employee.DepartmentCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Employee.DepartmentCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Interview.Location)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Interview.Location)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.InterCode }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

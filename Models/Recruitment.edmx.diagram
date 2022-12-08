@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="4e9c97606a434715ba22d3a84c33d6eb" Name="Diagram1">
+        <EntityTypeShape EntityType="RecruitmentModel.Applicant_Vacancy" Width="1.5" PointX="10.5" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="RecruitmentModel.Applicant" Width="1.5" PointX="8.25" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="RecruitmentModel.Department" Width="1.5" PointX="0.75" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="RecruitmentModel.Employee" Width="1.5" PointX="3" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="RecruitmentModel.Interviewer" Width="1.5" PointX="5.25" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="RecruitmentModel.Interview" Width="1.5" PointX="12.75" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="RecruitmentModel.Vacancy" Width="1.5" PointX="8.25" PointY="2.625" IsExpanded="true" />
+        <AssociationConnector Association="RecruitmentModel.FK__Applicant___ApId__31EC6D26" ManuallyRouted="false" />
+        <AssociationConnector Association="RecruitmentModel.FK__Applicant__VacID__32E0915F" ManuallyRouted="false" />
+        <AssociationConnector Association="RecruitmentModel.FK__Interviews__VAId__35BCFE0A" ManuallyRouted="false" />
+        <AssociationConnector Association="RecruitmentModel.FK__Employees__Depar__267ABA7A" ManuallyRouted="false" />
+        <AssociationConnector Association="RecruitmentModel.FK__Vacancies__Depar__2A4B4B5E" ManuallyRouted="false" />
+        <AssociationConnector Association="RecruitmentModel.FK__Interview__Emplo__398D8EEE" ManuallyRouted="false" />
+        <AssociationConnector Association="RecruitmentModel.FK__Vacancies__Emplo__2B3F6F97" ManuallyRouted="false" />
+        <AssociationConnector Association="RecruitmentModel.FK__Interview__Inter__38996AB5" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

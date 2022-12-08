@@ -1,0 +1,57 @@
+﻿@model Recruitment_Process_System_HR.Models.Applicant_Vacancy
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Applicant_Vacancy</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AttachesDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AttachesDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Applicant.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Applicant.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Vacancy.EmployeeCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Vacancy.EmployeeCode)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-success" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

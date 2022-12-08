@@ -1,0 +1,186 @@
+﻿@model IEnumerable<Recruitment_Process_System_HR.Models.Vacancy>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    div.dataTables_wrapper {
+        width: 800px;
+        margin: 0 auto;
+    }
+
+    .more-text {
+        display: none;
+    }
+</style>
+<link rel="stylesheet" type="text/css" href=@Url.Content("https://cdn.datatables.net/1.11.3/css/jquery.dataTables.css")>
+<!-- banner -->
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1" class=""></li>
+        <li data-target="#myCarousel" data-slide-to="2" class=""></li>
+        <li data-target="#myCarousel" data-slide-to="3" class=""></li>
+    </ol>
+    <div class="carousel-inner" role="listbox">
+        <div class="item active">
+            <div class="container">
+                <div class="carousel-caption">
+                    <h3>Improving workplace <span>Productivity.</span></h3>
+                    <p>Hire. Train. Retain.</p>
+                    <div class="agileits-button top_ban_agile">
+                        <a class="btn btn-primary btn-lg" href="single.html">Read More »</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="item item2">
+            <div class="container">
+                <div class="carousel-caption">
+                    <h3>Inspiring leadership <span>innovation.</span></h3>
+                    <p>Hire. Train. Retain.</p>
+                    <div class="agileits-button top_ban_agile">
+                        <a class="btn btn-primary btn-lg" href="single.html">Read More »</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="item item3">
+            <div class="container">
+                <div class="carousel-caption">
+                    <h3>Improving workplace <span>Productivity.</span></h3>
+                    <p>Hire. Train. Retain.</p>
+                    <div class="agileits-button top_ban_agile">
+                        <a class="btn btn-primary btn-lg" href="single.html">Read More »</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="item item4">
+            <div class="container">
+                <div class="carousel-caption">
+
+                    <h3>Inspiring leadership <span>innovation.</span></h3>
+                    <p>Hire. Train. Retain.</p>
+                    <div class="agileits-button top_ban_agile">
+                        <a class="btn btn-primary btn-lg scroll" href="#welcome" role="button">Read More »</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+        <span class="fa fa-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+        <span class="fa fa-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+    <!-- The Modal -->
+</div>
+@* search bar *@
+<div id="search_form" class="search_top">
+    <h2>Start your job search</h2>
+    <form action="#" method="post">
+        <div class="input-group container">
+            <span class="input-group-addon">
+                <i class="glyphicon glyphicon-search"></i>
+            </span>
+            <input id="txtSearch" type="text" class="form-control" placeholder="Search for...">
+        </div>
+        <div class="clearfix"></div>
+    </form>
+</div>
+
+<div class="container">
+    @* myCard contain *@
+
+    @foreach (var item in Model)
+    {
+        if (item.status.Equals("Open"))
+        {
+            <div class="myCard">
+                <h2 class="myCard-header">
+                    @Html.DisplayFor(modelItem => item.Title)
+                </h2>
+                <div class="myCard-body">
+                    <p class="card-text">
+                        @Html.DisplayNameFor(model => model.VacId):
+                        @Html.DisplayFor(modelItem => item.VacId)
+                        <br />
+                        @Html.DisplayFor(modelItem => item.Description).ToString().Substring(0, 200)
+                        <div id="@("dots"+item.VacId)">...</div>
+
+                        <div id="@("more"+ item.VacId)" class="more-text">
+                            @Html.DisplayFor(modelItem => item.Description).ToString().Substring(200)
+                            <h4 class="my-2">@Html.DisplayNameFor(model => model.RequireDescription):</h4>
+                            @{string[] rd = item.RequireDescription.ToString().Split(new string[] { "." }, StringSplitOptions.None);
+                                <ul>
+                                    @foreach (string i in rd)
+                                    {
+                                        if (i.Trim() != "")
+                                        {
+                                            <li>@(i)</li>
+                                        }
+                                    }
+                                </ul>
+                            }
+
+                            <h4 class="my-2">@Html.DisplayNameFor(model => model.Benefit):</h4>
+                            @{string[] ben = item.Benefit.ToString().Split(new string[] { "." }, StringSplitOptions.None);
+                                <ul>
+                                    @foreach (string i in ben)
+                                    {
+                                        if (i.Trim() != "")
+                                        {
+                                            <li>@(i)</li>
+                                        }
+                                    }
+                                </ul>
+                            }
+                        </div>
+                    </p>
+
+                    <div class="footerCard_btn">
+                        <button onclick="readMoreFunction('@(item.VacId)')" id="@("readBtn"+item.VacId)" class="readMore_btn">Read more</button>
+                        <a href=@Url.Action("Apply", "Home") type="button" class="apply_btn">Apply</a>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+
+        $(document).ready(function () {
+            $("#txtSearch").on("keyup", function () {
+                var value = $(this).val().toLowerCase();
+                $(".myCard").filter(function () {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+
+        function readMoreFunction(id) {
+
+            var dots = document.getElementById("dots" + id);
+            var moretext = document.getElementById("more" + id);
+            var btntext = document.getElementById("readBtn" + id);
+            if (dots.style.display === "none") {
+                dots.style.display = "inline";
+                btntext.innerHTML = "Read more";
+                moretext.style.display = "none";
+            } else {
+                dots.style.display = "none";
+                btntext.innerHTML = "Read less";
+                moretext.style.display = "inline";
+            }
+
+        }
+    </script>
+</div>

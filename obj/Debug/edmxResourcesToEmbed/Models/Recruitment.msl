@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="RecruitmentModelStoreContainer" CdmEntityContainer="RecruitmentEntities">
+    <EntitySetMapping Name="Applicant_Vacancy">
+      <EntityTypeMapping TypeName="RecruitmentModel.Applicant_Vacancy">
+        <MappingFragment StoreEntitySet="Applicant_Vacancy">
+          <ScalarProperty Name="VAId" ColumnName="VAId" />
+          <ScalarProperty Name="ApId" ColumnName="ApId" />
+          <ScalarProperty Name="VacID" ColumnName="VacID" />
+          <ScalarProperty Name="AttachesDate" ColumnName="AttachesDate" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Applicants">
+      <EntityTypeMapping TypeName="RecruitmentModel.Applicant">
+        <MappingFragment StoreEntitySet="Applicants">
+          <ScalarProperty Name="ApId" ColumnName="ApId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="IdentifyCard" ColumnName="IdentifyCard" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Major" ColumnName="Major" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Departments">
+      <EntityTypeMapping TypeName="RecruitmentModel.Department">
+        <MappingFragment StoreEntitySet="Departments">
+          <ScalarProperty Name="DepartmentCode" ColumnName="DepartmentCode" />
+          <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employees">
+      <EntityTypeMapping TypeName="RecruitmentModel.Employee">
+        <MappingFragment StoreEntitySet="Employees">
+          <ScalarProperty Name="EmployeeCode" ColumnName="EmployeeCode" />
+          <ScalarProperty Name="DepartmentCode" ColumnName="DepartmentCode" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Position" ColumnName="Position" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Interviewers">
+      <EntityTypeMapping TypeName="RecruitmentModel.Interviewer">
+        <MappingFragment StoreEntitySet="Interviewer">
+          <ScalarProperty Name="InterCode" ColumnName="InterCode" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="InterID" ColumnName="InterID" />
+          <ScalarProperty Name="EmployeeCode" ColumnName="EmployeeCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Interviews">
+      <EntityTypeMapping TypeName="RecruitmentModel.Interview">
+        <MappingFragment StoreEntitySet="Interviews">
+          <ScalarProperty Name="InterID" ColumnName="InterID" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+          <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="VAId" ColumnName="VAId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vacancies">
+      <EntityTypeMapping TypeName="RecruitmentModel.Vacancy">
+        <MappingFragment StoreEntitySet="Vacancies">
+          <ScalarProperty Name="VacId" ColumnName="VacId" />
+          <ScalarProperty Name="EmployeeCode" ColumnName="EmployeeCode" />
+          <ScalarProperty Name="DateBegin" ColumnName="DateBegin" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="RequireDescription" ColumnName="RequireDescription" />
+          <ScalarProperty Name="Benefit" ColumnName="Benefit" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="DepartmentCode" ColumnName="DepartmentCode" />
+          <ScalarProperty Name="DateOfChangeStatus" ColumnName="DateOfChangeStatus" />
+          <ScalarProperty Name="FulfillDate" ColumnName="FulfillDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

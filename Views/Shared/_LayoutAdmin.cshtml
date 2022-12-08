@@ -1,0 +1,233 @@
+﻿
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+
+
+    <link href="~/admin/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/admin/css/style.css" rel="stylesheet" />
+    <link href="~/admin/css/font-awesome.css" rel="stylesheet" /> @* link icon*@
+    <link href="~/admin/css/SidebarNav.min.css" rel="stylesheet" />
+    <link href="~/admin/css/Css.css" rel="stylesheet" />
+
+    <script src="~/admin/js/jquery-1.11.1.min.js"></script>
+    <script src="~/admin/js/modernizr.custom.js"></script>
+
+    <link href="//fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i&amp;subset=cyrillic,cyrillic-ext,latin-ext" rel="stylesheet">
+
+    <script src="~/admin/js/metisMenu.min.js"></script>
+    <script src="~/admin/js/notify.min.js"></script>
+    <link href="//cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css" />
+
+    <script src="~/admin/js/custom.js"></script>
+    <link href="~/admin/css/custom.css" rel="stylesheet" />
+
+    @{var show1 = @HttpContext.Current.Session["type"].Equals("Admin"); }
+    @{var show2 = @HttpContext.Current.Session["type"].Equals("Employee"); }
+    @{var show3 = @HttpContext.Current.Session["type"].Equals("Interviewer"); }
+</head>
+
+<body class="cbp-spmenu-push">
+    <div class="main-content">
+        <div class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
+            <!--left-fixed -navigation-->
+            <aside class="sidebar-left">
+                <nav class="navbar navbar-inverse">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".collapse" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <h1><a class="navbar-brand" href="index.html"><span class="fa fa-area-chart"></span> Glance<span class="dashboard_text">Admin dashboard</span></a></h1>
+                    </div>
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="sidebar-menu">
+                            <li class="header">Data Table</li>
+
+                            @* ......................................................................................................................... *@
+                            @* Menu*@
+
+
+                            @{ if (show1)
+                                {
+                                    <li class="treeview">
+                                        <a href="~/Applicants/Index">
+                                            <i class="fa fa-user"></i>
+                                            <span>Applicants</span>
+                                        </a>
+                                    </li>
+                                }
+                            }
+
+                            @{ if (show2)
+                                {
+                                    <li class="treeview">
+                                        <a href="~/Applicants/Index1">
+                                            <i class="fa fa-user"></i>
+                                            <span>Applicants</span>
+                                        </a>
+                                    </li>
+                                }
+                            }
+
+                            @{ if (show1 || show2)
+                                {
+                                    <li id="hideType1" class="treeview">
+                                        <a href="~/Applicant_Vacancy/Index">
+                                            <i class="fa fa-user"></i>
+                                            <span>Applicant_Vacancy</span>
+                                        </a>
+                                    </li>
+                                } }
+
+
+                            <li class="treeview">
+                                <a href="~/Departments/Index">
+                                    <i class="fa fa-pie-chart"></i>
+                                    <span>Departments</span>
+                                </a>
+                            </li>
+
+                            @if (show1)
+                            {
+                                <li class="treeview">
+                                    <a href="~/Employees/Index">
+                                        <i class="fa fa-user"></i>
+                                        <span>Employees</span>
+                                    </a>
+                                </li>
+                            }
+
+                            <li class="treeview">
+                                <a href="~/Interviewers/Index">
+                                    <i class="fa fa-pie-chart"></i>
+                                    <span>Interviewers</span>
+                                </a>
+                            </li>
+
+
+
+                            <li class="treeview">
+                                <a href="~/Vacancies/Index">
+                                    <i class="fa fa-pie-chart"></i>
+                                    <span>Vacancies</span>
+                                </a>
+                            </li>
+
+                            <li class="treeview">
+                                <a href=@Url.Action("Index","Interviews")>
+                                    <i class="fa fa-pie-chart"></i>
+                                    <span>Interviews</span>
+                                </a>
+                            </li>
+
+                            @* ......................................................................................................................... *@
+
+                            <li class="header">LABELS</li>
+                            <li><a href="#"><i class="fa fa-angle-right "></i> <span>Important</span></a></li>
+                            <li><a href="#"><i class="fa fa-angle-right text-yellow"></i> <span>Warning</span></a></li>
+                            <li><a href="#"><i class="fa fa-angle-right text-aqua"></i> <span>Information</span></a></li>
+                        </ul>
+                    </div>
+                    <!-- /.navbar-collapse -->
+                </nav>
+            </aside>
+        </div>
+        <!--left-fixed -navigation-->
+        <!-- header-starts -->
+        <div class="sticky-header header-section ">
+            <div class="header-left">
+
+                <!--toggle button start-->
+                <button id="showLeftPush" style="margin-bottom:10px"><i class="fa fa-bars"></i></button
+                <!--toggle button end-->
+      
+            </div>
+            <div class="header-right">
+
+                <div class="profile_details">
+                    <ul>
+                        <li class="dropdown profile_details_drop">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                <div class="profile_img">
+                                    <div class="user-name">
+                                        <p>@HttpContext.Current.Session["fullname"]</p>
+                                        <p>@HttpContext.Current.Session["username"]</p>
+                                    </div>
+                                    <i class="fa fa-angle-down lnr"></i>
+                                    <i class="fa fa-angle-up lnr"></i>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </a>
+                            <ul class="dropdown-menu drp-mnu">
+                                <li> <a href=@Url.Action("Logout", "Admin")><i class="fa fa-sign-out"></i> Logout</a> </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+        <!-- //header-ends -->
+        <!-- main content start-->
+        <div id="page-wrapper">
+
+            <div style="overflow-x: scroll">
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+
+    <!-- side nav js -->
+    <script src="~/admin/js/SidebarNav.min.js"></script>
+    <script>
+        $('.sidebar-menu').SidebarNav()
+    </script>
+    <!-- //side nav js -->
+    <!-- Classie --><!-- for toggle left push menu script -->
+    <script src="~/admin/js/classie.js"></script>
+    <script>
+        var menuLeft = document.getElementById('cbp-spmenu-s1'),
+            showLeftPush = document.getElementById('showLeftPush'),
+            body = document.body;
+
+        showLeftPush.onclick = function () {
+            classie.toggle(this, 'active');
+            classie.toggle(body, 'cbp-spmenu-push-toright');
+            classie.toggle(menuLeft, 'cbp-spmenu-open');
+            disableOther('showLeftPush');
+        };
+
+        function disableOther(button) {
+            if (button !== 'showLeftPush') {
+                classie.toggle(showLeftPush, 'disabled');
+            }
+        }
+    </script>
+    <!-- //Classie --><!-- //for toggle left push menu script -->
+    <!--scrolling js-->
+    <script src="~/admin/js/jquery.nicescroll.js"></script>
+    <script src="~/admin/js/scripts.js"></script>
+    <!--//scrolling js-->
+    <!-- Bootstrap Core JavaScript -->
+    <script src="~/admin/js/bootstrap.js"></script>
+    <!-- //Bootstrap Core JavaScript -->
+    @*jquery DBtable *@
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="~/Scripts/jquery-ui-1.13.0.min.js"></script>
+</body>
+@*<body>
+		<div>
+			@RenderBody()
+		</div>
+	</body>*@
+</html>

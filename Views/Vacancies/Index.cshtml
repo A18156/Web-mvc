@@ -1,0 +1,103 @@
+﻿@model IEnumerable<Recruitment_Process_System_HR.Models.Vacancy>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<link rel="stylesheet" type="text/css" href="/DataTables/datatables.css">
+<h2>Applicants</h2>
+<br />
+<div style="">
+    <a href="@Url.Action("Create","Vacancies")" class="btn btn-success">Create New</a>
+    <input id="txtSearch" type="text" placeholder="Search for..." style="border-radius:25px;padding:5px;width:20%">
+</div>
+<div style="background-color: #ffffff; margin-top:20px">
+    <table id="#myTable" class="table table-striped">
+        <thead style="color:#ffffff; background-color:#000000">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.DateBegin)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.status)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Title)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Quantity)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DateOfChangeStatus)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FulfillDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Department.DepartmentName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Employee.DepartmentCode)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DateBegin)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.status)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Quantity)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DateOfChangeStatus)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FulfillDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Department.DepartmentName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Employee.DepartmentCode)
+                    </td>
+                    <td>
+                        @Html.ActionLink(" ", "Edit", new { id = item.VacId }, new { @class = "fa fa-edit" }) |
+                        @Html.ActionLink(" ", "Details", new { id = item.VacId }, new { @class = "fa fa-eye" }) |
+                        @Html.ActionLink(" ", "Delete", new { id = item.VacId }, new { @class = "fa fa-trash" })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+<script type="text/javascript" charset="utf8" src="/DataTables/datatables.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#txtSearch").on("keyup", function () {
+            var value = $(this).val().toLowerCase();
+            $("tbody tr").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+    });
+
+    $(document).ready(function () {
+        $('#myTable').DataTable();
+    });
+</script>

@@ -1,0 +1,51 @@
+﻿@model Recruitment_Process_System_HR.Models.Applicant_Vacancy
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Applicant_Vacancy</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AttachesDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AttachesDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Applicant.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Applicant.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Vacancy.EmployeeCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Vacancy.EmployeeCode)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.VAId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
